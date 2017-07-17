@@ -50,7 +50,7 @@ comps = [{'name': 'MLS', 'link': '/MLS', 'acronym': 'MLS'}
 def getCompLink(compName):
 	for comp in comps:
 		if comp['name'] in compName:
-			return "["+comp['acronym']+"]("+comp['link']+")"
+			return comp['link']
 
 	return ""
 
@@ -67,7 +67,7 @@ teams = []
 
 def getTeamLink(name, useFullname=False, nameOnly=False):
 	for item in teams:
-		if item['contains'] in name:
+		if item['contains'].lower() in name.lower():
 			if nameOnly:
 				return (item['contains'] if useFullname else item['acronym'])
 			else:
@@ -290,7 +290,7 @@ def parseSchedule():
 			match['home'] = TEAM_NAME
 			match['away'] = opponentElement[0]
 		elif homeAwayElement[0] == 'A':
-			match['home'] = opponentElement[0][2:]
+			match['home'] = opponentElement[0][3:]
 			match['away'] = TEAM_NAME
 		else:
 			log.debug("Could not find opponent")
