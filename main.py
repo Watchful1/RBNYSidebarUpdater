@@ -260,10 +260,10 @@ def parseSchedule():
 
 		if 'TBD' in timeElement[0]:
 			match['datetime'] = datetime.datetime.strptime(dateElement[0] + timeElement[0], "%A, %B %d, %Y")
-			game['status'] = 'tbd'
+			match['status'] = 'tbd'
 		else:
 			match['datetime'] = datetime.datetime.strptime(dateElement[0] + timeElement[0], "%A, %B %d, %Y %I:%M%p ET")
-			game['status'] = ''
+			match['status'] = ''
 
 		statusElement = element.xpath(".//span[contains(@class,'match_result')]/text()")
 		if len(statusElement):
