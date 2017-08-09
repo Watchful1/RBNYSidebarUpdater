@@ -262,7 +262,7 @@ def parseSchedule():
 			match['datetime'] = datetime.datetime.strptime(dateElement[0] + timeElement[0], "%A, %B %d, %Y")
 			match['status'] = 'tbd'
 		else:
-			match['datetime'] = datetime.datetime.strptime(dateElement[0] + timeElement[0], "%A, %B %d, %Y %I:%M%p ET")
+			match['datetime'] = datetime.datetime.strptime(dateElement[0], "%A, %B %d, %Y %I:%M%p ET")
 			match['status'] = ''
 
 		statusElement = element.xpath(".//span[contains(@class,'match_result')]/text()")
