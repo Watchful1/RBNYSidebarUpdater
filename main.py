@@ -258,7 +258,12 @@ def parseSchedule():
 			log.warning("Couldn't find time for match, skipping")
 			continue
 
-		match['datetime'] = datetime.datetime.strptime(dateElement[0]+timeElement[0], "%A, %B %d, %Y %I:%M%p ET")
+		if 'TBD' in timeElement[0]:
+			match['datetime'] = datetime.datetime.strptime(dateElement[0] + timeElement[0], "%A, %B %d, %Y")
+			game['status'] = 'tbd'
+		else:
+			match['datetime'] = datetime.datetime.strptime(dateElement[0] + timeElement[0], "%A, %B %d, %Y %I:%M%p ET")
+			game['status'] = ''
 
 		statusElement = element.xpath(".//span[contains(@class,'match_result')]/text()")
 		if len(statusElement):
