@@ -259,7 +259,7 @@ def parseSchedule():
 			continue
 
 		if 'TBD' in timeElement[0]:
-			match['datetime'] = datetime.datetime.strptime(dateElement[0], "%A, %B %d, %Y")
+			match['datetime'] = datetime.datetime.strptime(dateElement[0].strip(), "%A, %B %d, %Y")
 			match['status'] = 'tbd'
 		else:
 			match['datetime'] = datetime.datetime.strptime(dateElement[0] + timeElement[0], "%A, %B %d, %Y %I:%M%p ET")
