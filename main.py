@@ -242,7 +242,7 @@ def printTable(standings):
 
 ### Parse schedule ###
 def parseSchedule():
-	page = requests.get("https://www.newyorkredbulls.com/schedule?year=2017")
+	page = requests.get("https://www.newyorkredbulls.com/schedule?year=2018")
 	tree = html.fromstring(page.content)
 
 	schedule = []
